@@ -1,6 +1,8 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
+import java.util.*;
+
+
 
 public class Job {
 
@@ -93,5 +95,47 @@ public class Job {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        String S = System.lineSeparator();
+        String jobString = S + "ID: " + id;
+
+
+
+        if (name == null) {
+            jobString += S + "Name: " + "Data not available";
+        } else {
+            jobString += S + "Name: " + name;
+        }
+        if (employer == null) {
+            jobString += S + "Employer: " + "Data not available";
+        }else {
+            jobString += S + "Employer: " + employer;
+        }
+        if (location == null) {
+            jobString += S + "Location: " + "Data not available";
+        }else {
+            jobString += S + "Location: " + location;
+        }
+        if (positionType == null) {
+            jobString += S + "Position Type: " + "Data not available";
+        }else {
+            jobString += S + "Position Type: " + positionType;
+        }
+        if (coreCompetency == null) {
+            jobString += S + "Core Competency: " + "Data not available";
+        }else {
+            jobString += S + "Core Competency: " + coreCompetency;
+        }
+
+
+        jobString += S;
+
+
+        return jobString;
+
+
     }
 }

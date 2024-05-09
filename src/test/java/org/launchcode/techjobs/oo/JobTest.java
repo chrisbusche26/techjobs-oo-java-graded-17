@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Objects;
 
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -34,5 +35,34 @@ public class JobTest {
         Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(job1.equals(job2));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String S = System.lineSeparator();
+        String jobPrint = job.toString();
+        assertEquals(jobPrint.indexOf(S), 0);
+        assertEquals(jobPrint.lastIndexOf(S), 125);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String S = System.lineSeparator();
+        assertEquals(S + "ID: " + job.getId() + S + "Name: " + job.getName() + S + "Employer: " + job.getEmployer() + S +
+                "Location: " + job.getLocation() + S + "Position Type: " + job.getPositionType()
+                + S + "Core Competency: " + job.getCoreCompetency() + S, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job job = new Job();
+        String S = System.lineSeparator();
+        assertEquals(S + "ID: " + job.getId() + S + "Name: " + "Data not available" + S + "Employer: " + "Data not available" + S +
+                "Location: " + "Data not available" + S + "Position Type: " + "Data not available"
+                + S + "Core Competency: " + "Data not available" + S, job.toString());
     }
 }
