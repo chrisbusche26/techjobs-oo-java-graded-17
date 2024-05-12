@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.*;
 
+import static java.lang.System.lineSeparator;
+
 
 public class Job {
 
@@ -23,13 +25,13 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String aName, Employer anEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        this.name = aName;
+        this.employer = anEmployer;
+        this.location = aLocation;
+        this.positionType = aPositionType;
+        this.coreCompetency = aCoreCompetency;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -53,6 +55,9 @@ public class Job {
     //  and id.
 
     public String getName() {
+        if (name == null || name.isEmpty()){
+            return "Data not available";
+        }
         return name;
     }
 
@@ -98,21 +103,12 @@ public class Job {
 
     @Override
     public String toString() {
-        String s = System.lineSeparator();
-
-        String nameValue = (name != null && !name.isEmpty()) ? name : "Data not available";
-        String employerValue = employer != null ? employer.toString() : "Data not available";
-        String locationValue = location != null ? location.toString() : "Data not available";
-        String positionTypeValue = positionType != null ? positionType.toString() : "Data not available";
-        String coreCompetencyValue = coreCompetency != null ? coreCompetency.toString() : "Data not available";
-
-        return s + "ID: " + id +
-                s + "Name: " + nameValue +
-                s + "Employer: " + employerValue +
-                s + "Location: " + locationValue +
-                s + "Position Type: " + positionTypeValue +
-                s + "Core Competency: " + coreCompetencyValue + s;
-
-
+        return lineSeparator() + "ID: " + id +
+                lineSeparator() + "Name: " + name +
+                lineSeparator() + "Employer: " + employer.getValue() +
+                lineSeparator() + "Location: " + location.getValue() +
+                lineSeparator() + "Position Type: " + positionType.getValue() +
+                lineSeparator() + "Core Competency: " + coreCompetency.getValue() +
+                lineSeparator();
     }
 }
