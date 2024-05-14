@@ -103,12 +103,12 @@ public class Job {
 
     @Override
     public String toString() {
-        return lineSeparator() + "ID: " + id +
-                lineSeparator() + "Name: " + name +
-                lineSeparator() + "Employer: " + employer.getValue() +
-                lineSeparator() + "Location: " + location.getValue() +
-                lineSeparator() + "Position Type: " + positionType.getValue() +
-                lineSeparator() + "Core Competency: " + coreCompetency.getValue() +
-                lineSeparator();
+        return System.lineSeparator() + "ID: " + id +
+                System.lineSeparator() + "Name: " + name +
+                System.lineSeparator() + "Employer: " + employer.getValue() +
+                System.lineSeparator() + "Location: " + location.getValue() +
+                System.lineSeparator() + "Position Type: " + positionType.getValue() +
+                System.lineSeparator() + "Core Competency: " + coreCompetency.getValue() +
+                System.lineSeparator();
     }
 }

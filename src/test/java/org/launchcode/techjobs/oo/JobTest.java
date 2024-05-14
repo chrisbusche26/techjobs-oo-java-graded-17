@@ -3,7 +3,7 @@ package org.launchcode.techjobs.oo;
 import org.junit.Test;
 
 import java.util.Objects;
-
+import static java.lang.System.lineSeparator;
 
 import static org.junit.Assert.*;
 
@@ -61,7 +61,7 @@ public class JobTest {
     public void testToStringHandlesEmptyField(){
         Job job = new Job("Product tester", new Employer(""), new Location("Desert"),
                 new PositionType(""), new CoreCompetency("Persistence"));
-        String S = System.lineSeparator();
+        String S = lineSeparator();
         assertEquals(S + "ID: " + job.getId() + S + "Name: " + job.getName() + S + "Employer: " + "Data not available" + S +
                 "Location: " + job.getLocation() + S + "Position Type: " + "Data not available"
                 + S + "Core Competency: " + job.getCoreCompetency() + S, job.toString());
