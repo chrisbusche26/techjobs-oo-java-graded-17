@@ -43,8 +43,8 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String S = System.lineSeparator();
         String jobPrint = job.toString();
-        assertTrue(jobPrint.startsWith(S);
-        assertTrue(jobPrint.endsWith(S);
+        assertTrue(jobPrint.startsWith(S));
+        assertTrue(jobPrint.endsWith(S));
     }
 
     @Test
